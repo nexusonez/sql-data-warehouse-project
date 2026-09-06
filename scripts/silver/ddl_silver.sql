@@ -1,3 +1,13 @@
+/*
+===============================================================================
+DDL Script: Create Silver Layers
+===============================================================================
+Script Purpose:
+	This script creates tables in the 'silver' schema, dropping exising tables
+	if they already exists.
+	Run this script to re-define the DDL, sctructure of the 'bronze' tables
+===============================================================================
+*/
 USE DataWarehouse;
 
 IF OBJECT_ID('silver.crm_cust_info','U') IS NOT NULL
