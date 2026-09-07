@@ -208,7 +208,8 @@ BEGIN
 	END AS bdate,
 	CASE WHEN UPPER(TRIM(gen)) = 'F' THEN 'Female'		-- normalized gender values and handle unknown cases
 		WHEN UPPER(TRIM(gen)) = 'M' THEN 'Male'
-		ELSE 'n/a'
+		WHEN gen IS NULL OR gen = '' THEN 'n/a'
+		ELSE gen
 		END AS gen
 	FROM bronze.erp_cust_az12
 	SET @end_time = GETDATE();
